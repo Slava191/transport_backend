@@ -26,6 +26,10 @@ exports.authorizeUser = async function (req, res){
 
         let { login, password }  = req.body
 
+        console.log(login, password)
+
+        console.log(req)
+
         const user = await User.findOne({where: { login }})
 
         if(!user) throw new Error("Not exist")
