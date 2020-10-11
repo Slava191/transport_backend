@@ -3,6 +3,7 @@ const app = express()
 
 const userRouter = require("./routes/userRouter.js")
 
+require('./handlers/cors').init(app);
 require('./handlers/bodyParser').init(app);
 require('./handlers/auth').init(app);
 
