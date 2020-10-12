@@ -1,8 +1,8 @@
 const passport = require('../libs/passport');
 
-exports.init = app => app.use(async (req, res, next) => {
+exports.init = app => app.use((req, res, next) => {
 
-    await passport.authenticate('jwt', function (err, { dataValues: user }){
+    passport.authenticate('jwt', function (err, { dataValues: user }){
 
         req.isAuthenticated = user ? true : false
 
@@ -14,8 +14,8 @@ exports.init = app => app.use(async (req, res, next) => {
 
         }
 
-    })(req, res, next)
+        next()
 
-    await next()
+    })(req, res, next)
 
 })

@@ -20,15 +20,23 @@ function getPasswordHash(password){
 
 }
 
+exports.getAuthUser = async (req, res) => {
+
+    try{
+
+        res.send(req.user)
+
+    }catch(e){
+        console.log(e)
+    }
+
+}
+
 exports.authorizeUser = async function (req, res){
 
     try{
 
         let { login, password }  = req.body
-
-        console.log(login, password)
-
-        console.log(req)
 
         const user = await User.findOne({where: { login }})
 
@@ -90,12 +98,12 @@ exports.getUsers = async function(req, res){
          * Это чисто по приколу, 
          * необходимо убрать потом.
          */
-        if(req.isAuthenticated){
-            users = users.map(user => {
-                user.isMy = user.id === req.user.id ? true : false
-                return user
-            })
-        }
+        // if(req.isAuthenticated){
+        //     users = users.map(user => {
+        //         user.isMy = user.id === req.user.id ? true : false
+        //         return user
+        //     })
+        // }
 
         res.send(users)
 
