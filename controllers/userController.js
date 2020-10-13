@@ -63,6 +63,25 @@ exports.authorizeUser = async function (req, res){
 
 }
 
+exports.deleteUser = async function (req, res){
+
+    try{
+
+        const { id } = req.params
+    
+        const rowDeleted = await User.destroy({ where: { id } })
+
+        res.send({
+            rowDeleted
+        })
+
+    }catch(e){
+        res.send({
+            error: e.message
+        })
+    }
+
+}
 
 exports.addUser = async function (req, res){
 
@@ -93,17 +112,6 @@ exports.getUsers = async function(req, res){
     try{
 
         let users = await User.findAll({raw:true})
-
-        /**
-         * Это чисто по приколу, 
-         * необходимо убрать потом.
-         */
-        // if(req.isAuthenticated){
-        //     users = users.map(user => {
-        //         user.isMy = user.id === req.user.id ? true : false
-        //         return user
-        //     })
-        // }
 
         res.send(users)
 

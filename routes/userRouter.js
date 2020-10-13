@@ -7,6 +7,7 @@ userRouter
         .get("/auth", userController.getAuthUser)
         .post("/", userController.addUser)
         .post("/signin", userController.authorizeUser)
+        .delete("/:id", userController.deleteUser)
 
  
 module.exports = userRouter;
