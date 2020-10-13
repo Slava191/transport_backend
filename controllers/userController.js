@@ -99,6 +99,11 @@ exports.addUser = async function (req, res){
 
         password = await getPasswordHash(password)
 
+        let users = await User.findAll({raw:true})
+        if(users.length===0){
+            role = 'admin'
+        }
+
         const user = await User.create({ login, password, role, tariff })
 
         res.send(user)
