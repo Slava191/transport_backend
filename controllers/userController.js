@@ -87,7 +87,11 @@ exports.addUser = async function (req, res){
 
     try{
 
-        let { login, password }  = req.body
+        //TODO: Необходимо сделать, что только админ может передлать role и tariff
+
+        let { login, password, role, tariff }  = req.body
+
+        if(!login || !password) throw new Error("Login and password can't be empty value")
 
         const foundedUser = await User.findOne({where: { login }})
 
@@ -95,7 +99,7 @@ exports.addUser = async function (req, res){
 
         password = await getPasswordHash(password)
 
-        const user = await User.create({ login, password })
+        const user = await User.create({ login, password, role, tariff })
 
         res.send(user)
 

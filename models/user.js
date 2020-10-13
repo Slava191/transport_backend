@@ -15,6 +15,16 @@ const User = sequelize.define("user", {
     password: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    role: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      defaultValue: 'user'
+    },
+    tariff: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     }
 });
 
