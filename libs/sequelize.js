@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
     config.get('sequalize.login'), 
     config.get('sequalize.password'), 
     {
-        ...config.get('mysql')
+        ...config.get('mssql')
     }
 );
 

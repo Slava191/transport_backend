@@ -6,14 +6,22 @@ module.exports = {
   jwtSecret: process.env.JWTSECRET || 'mysecretkey12345',
   root: process.cwd(),
   sequalize: {
-    database: "transport",
-    login: "root",
-    password: ""
+    database: "TRANSPORTDEV",
+    login: "sa",
+    password: "123456"
+    // database: "transport",
+    // login: "root",
+    // password: ""
   },
   mysql: {
     dialect: "mysql",
     host: "localhost",
     port: 3307
+  },
+  mssql: {
+    dialect: "mssql",
+    host: "localhost",
+    port: "1433"
   },
   server: {
     host: 'http://localhost',
