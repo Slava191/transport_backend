@@ -1,6 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../libs/sequelize")
 
+const ATS = require("../models/ATS");
+
 const User = sequelize.define("user", {
     id: {
       type: Sequelize.INTEGER,
@@ -27,6 +29,9 @@ const User = sequelize.define("user", {
       defaultValue: 0
     }
 });
+
+User.hasMany(ATS, {foreignKey: 'user_id'})
+ATS.belongsTo(User, {foreignKey: 'user_id'})
 
 sequelize.sync().then(result=>{
     //console.log(result);
