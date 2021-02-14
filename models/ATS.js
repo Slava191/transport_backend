@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../libs/sequelize")
 
-const User = require("../models/user")
+// const User = require("./user")
+// const HodovoeKachestvo = require("./hodovoeKachestvo");
 
 const ATS = sequelize.define("ATS", {
     id: {
@@ -12,10 +13,17 @@ const ATS = sequelize.define("ATS", {
     },
     user_id:{
         type: Sequelize.INTEGER,
-        references: {
-            model: User,
-            key: "id"
-        }
+        // references: {
+        //     model: User,
+        //     key: "id"
+        // }
+    },
+    hodovoe_kachestvo_id:{
+        type: Sequelize.INTEGER,
+    //     // references: {
+    //     //     model: HodovoeKachestvo,
+    //     //     key: "id"
+    //     // }
     },
     Marka_model: {
         type: Sequelize.STRING,
@@ -36,7 +44,7 @@ const ATS = sequelize.define("ATS", {
 
 
 
-sequelize.sync().then(result=>{
+ATS.sync().then(result=>{
     //console.log(result);
 })
 .catch(err=> console.log(err));

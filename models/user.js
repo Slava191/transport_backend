@@ -27,13 +27,16 @@ const User = sequelize.define("user", {
       type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: 0
-    }
+    },
+    fullName: {
+      type: Sequelize.STRING,
+    },
 });
 
 User.hasMany(ATS, {foreignKey: 'user_id'})
 ATS.belongsTo(User, {foreignKey: 'user_id'})
 
-sequelize.sync().then(result=>{
+User.sync().then(result=>{
     //console.log(result);
 })
 .catch(err=> console.log(err));

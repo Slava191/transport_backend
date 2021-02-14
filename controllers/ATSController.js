@@ -1,12 +1,14 @@
 const User = require("../models/user");
 const ATS = require("../models/ATS");
-const sequelize = require("../libs/sequelize")
+const HodovoeKachestvo = require("../models/hodovoeKachestvo");
+
+//const sequelize = require("../libs/sequelize")
 
 exports.getAllATS = async function(req, res){
 
     try{
 
-        let allATS = await ATS.findAll({raw:true, include: [User]})
+        let allATS = await ATS.findAll({raw:true, include: [User, HodovoeKachestvo]})
         console.log(allATS)
 
         //let [ allATS ] = await sequelize.query('SELECT a.*, u.login FROM ATs a INNER JOIN users u ON a.user_id = u.id')
@@ -28,6 +30,7 @@ exports.addATS = async function (req, res){
             Tip_ATS, 
             Kabina, 
             Klass, 
+            hodovoe_kachestvo_id,
             Primechaniya 
         }  = req.body
 
@@ -39,6 +42,7 @@ exports.addATS = async function (req, res){
             Tip_ATS, 
             Kabina, 
             Klass, 
+            hodovoe_kachestvo_id,
             Primechaniya 
         })
 
