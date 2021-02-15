@@ -25,6 +25,9 @@ const ATS = sequelize.define("ATS", {
     //     //     key: "id"
     //     // }
     },
+    gabarity_id: {
+        type: Sequelize.INTEGER,
+    },
     Marka_model: {
         type: Sequelize.STRING,
     },
