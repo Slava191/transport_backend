@@ -1,3 +1,5 @@
+const User = require("../models/user");
+
 module.exports = class BasicController{
 
     constructor(Model, authUser){
@@ -19,7 +21,10 @@ module.exports = class BasicController{
     }
 
     async findAll(){
-        return await this.Model.findAll({raw:true})
+        return await this.Model.findAll({
+            raw:true, 
+            include: [User]
+        })
     }
 
 }
