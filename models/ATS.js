@@ -13,19 +13,23 @@ const ATS = sequelize.define("ATS", {
     },
     user_id:{
         type: Sequelize.INTEGER,
-        // references: {
-        //     model: User,
-        //     key: "id"
-        // }
     },
     hodovye_kachestva_id:{
         type: Sequelize.INTEGER,
-    //     // references: {
-    //     //     model: HodovoeKachestvo,
-    //     //     key: "id"
-    //     // }
     },
     gabarity_id: {
+        type: Sequelize.INTEGER,
+    },
+    harakteristiki_dvigatelya_id: {
+        type: Sequelize.INTEGER,
+    },
+    informaciya_o_tekhnicheskih_uzlah_i_agregatah_id: {
+        type: Sequelize.INTEGER,
+    },
+    massa_id: {
+        type: Sequelize.INTEGER,
+    },
+    transmissiya_i_kolyosa_id: {
         type: Sequelize.INTEGER,
     },
     Marka_model: {
