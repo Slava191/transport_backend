@@ -1,9 +1,15 @@
-module.exports = (router) => {
+module.exports = (router, CRUDClass, Model) => {
 
     router
+        .use((req, res, next)=> {
+
+                req.instanceOfCRUDClass = new CRUDClass(Model, req.user)
+                next()
+
+        })
         .get("/", async function(req, res){
 
-            const list = await req.basicController.findAll()
+            const list = await req.instanceOfCRUDClass.findAll()
 
             res.send(list)
 
@@ -12,7 +18,7 @@ module.exports = (router) => {
 
             const data = req.body
 
-            const newEntry = await req.basicController.create(data)
+            const newEntry = await req.instanceOfCRUDClass.create(data)
     
             res.send(newEntry)
 

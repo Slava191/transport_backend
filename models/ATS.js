@@ -18,7 +18,7 @@ const ATS = sequelize.define("ATS", {
         //     key: "id"
         // }
     },
-    hodovoe_kachestvo_id:{
+    hodovye_kachestva_id:{
         type: Sequelize.INTEGER,
     //     // references: {
     //     //     model: HodovoeKachestvo,

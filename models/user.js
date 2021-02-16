@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const sequelize = require("../libs/sequelize")
 
 const ATS = require("../models/ATS");
-const HodovoeKachestvo = require("../models/hodovoeKachestvo");
+const HodovyeKachestva = require("./hodovyeKachestva");
 const Gabarity = require("../models/gabarity");
 
 const User = sequelize.define("user", {
@@ -37,7 +37,7 @@ const User = sequelize.define("user", {
 
 User.hasMany(ATS, {foreignKey: 'user_id'})
 ATS.belongsTo(User, {foreignKey: 'user_id'})
-HodovoeKachestvo.belongsTo(User, {foreignKey: 'user_id'})
+HodovyeKachestva.belongsTo(User, {foreignKey: 'user_id'})
 Gabarity.belongsTo(User, {foreignKey: 'user_id'})
 
 User.sync().then(result=>{

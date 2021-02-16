@@ -7,13 +7,13 @@ require('./handlers/auth').init(app);
 
 const userRouter = require("./routes/userRouter.js")
 const ATSRouter = require("./routes/ATSRouter.js")
-const hodovoeKachestvoRouter = require("./routes/hodovoeKachestvoRouter.js")
+const hodovyeKachestvaRouter = require("./routes/hodovyeKachestvaRouter.js")
 const gabarityRouter = require("./routes/gabarityRouter.js")
 
 app
     .use("/users", userRouter)
     .use("/ATS", ATSRouter)
-    .use("/hodovoeKachestvo", hodovoeKachestvoRouter)
+    .use("/hodovyeKachestva", hodovyeKachestvaRouter)
     .use("/gabarity", gabarityRouter)
 
 module.exports = app

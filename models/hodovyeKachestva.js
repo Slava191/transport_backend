@@ -4,7 +4,7 @@ const sequelize = require("../libs/sequelize")
 const User = require("./user")
 const ATS = require("./ATS");
 
-const HodovoeKachestvo = sequelize.define("hodovoe_kachestvo", {
+const HodovyeKachestva = sequelize.define("hodovye_kachestva", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -35,12 +35,12 @@ const HodovoeKachestvo = sequelize.define("hodovoe_kachestvo", {
     },
 });
 
-HodovoeKachestvo.hasMany(ATS, {foreignKey: 'hodovoe_kachestvo_id'})
-ATS.belongsTo(HodovoeKachestvo, {foreignKey: 'hodovoe_kachestvo_id'})
+HodovyeKachestva.hasMany(ATS, {foreignKey: 'hodovye_kachestva_id'})
+ATS.belongsTo(HodovyeKachestva, {foreignKey: 'hodovye_kachestva_id'})
 
-HodovoeKachestvo.sync().then(result=>{
+HodovyeKachestva.sync().then(result=>{
     //console.log(result);
 })
 .catch(err=> console.log(err));
 
-module.exports = HodovoeKachestvo
+module.exports = HodovyeKachestva
