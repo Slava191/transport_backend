@@ -4,6 +4,11 @@ const sequelize = require("../libs/sequelize")
 const ATS = require("../models/ATS");
 const HodovyeKachestva = require("./hodovyeKachestva");
 const Gabarity = require("../models/gabarity");
+const HarakteristikiDvigatelya = require("../models/harakteristikiDvigatelya")
+
+const InformaciyaOTekhnicheskihUzlahIAgregatah = require("../models/informaciyaOTekhnicheskihUzlahIAgregatah")
+const Massa = require("../models/massa")
+const TransmissiyaIKolyosa = require("../models/transmissiyaIKolyosa")
 
 const User = sequelize.define("user", {
     id: {
@@ -35,10 +40,15 @@ const User = sequelize.define("user", {
     },
 });
 
-User.hasMany(ATS, {foreignKey: 'user_id'})
+//User.hasMany(ATS, {foreignKey: 'user_id'})
+
 ATS.belongsTo(User, {foreignKey: 'user_id'})
 HodovyeKachestva.belongsTo(User, {foreignKey: 'user_id'})
 Gabarity.belongsTo(User, {foreignKey: 'user_id'})
+HarakteristikiDvigatelya.belongsTo(User, {foreignKey: 'user_id'})
+InformaciyaOTekhnicheskihUzlahIAgregatah.belongsTo(User, {foreignKey: 'user_id'})
+Massa.belongsTo(User, {foreignKey: 'user_id'})
+TransmissiyaIKolyosa.belongsTo(User, {foreignKey: 'user_id'})
 
 User.sync().then(result=>{
     //console.log(result);
