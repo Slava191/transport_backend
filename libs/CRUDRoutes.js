@@ -14,6 +14,15 @@ module.exports = (router, CRUDClass, Model) => {
             res.send(list)
 
         })
+        .get("/:id", async function(req, res){
+
+            const { id } = req.params
+
+            const entry = await req.instanceOfCRUDClass.Model.findByPk(id)
+
+            res.send(entry)
+
+        })
         .post("/", async function(req, res){
 
             const data = req.body
