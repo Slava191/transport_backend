@@ -62,6 +62,6 @@ ATS.belongsTo(Model, {foreignKey: 'massa_id'})
 Model.sync().then(result=>{
     //console.log(result);
 })
-.catch(err=> console.log(err));
+.catch(err=> err);
 
 module.exports = Model

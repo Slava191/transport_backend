@@ -44,6 +44,6 @@ ATS.belongsTo(Model, {foreignKey: 'transmissiya_i_kolyosa_id'})
 Model.sync().then(result=>{
     //console.log(result);
 })
-.catch(err=> console.log(err));
+.catch(err=> err);
 
 module.exports = Model

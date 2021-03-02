@@ -47,6 +47,6 @@ ATS.belongsTo(HarakteristikiDvigatelya, {foreignKey: 'harakteristiki_dvigatelya_
 HarakteristikiDvigatelya.sync().then(result=>{
     //console.log(result);
 })
-.catch(err=> console.log(err));
+.catch(err=> err);
 
 module.exports = HarakteristikiDvigatelya

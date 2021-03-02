@@ -41,6 +41,6 @@ ATS.belongsTo(HodovyeKachestva, {foreignKey: 'hodovye_kachestva_id'})
 HodovyeKachestva.sync().then(result=>{
     //console.log(result);
 })
-.catch(err=> console.log(err));
+.catch(err=> err);
 
 module.exports = HodovyeKachestva

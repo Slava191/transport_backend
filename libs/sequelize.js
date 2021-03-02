@@ -10,4 +10,15 @@ const sequelize = new Sequelize(
     }
 );
 
+sequelize.authenticate().then((err) => {
+    console.log('_________________________________________');
+    console.log('Connection successful', err);
+    console.log('_________________________________________');
+})
+.catch((err) => {
+    console.log('_________________________________________');
+    console.log('Unable to connect to database ', err);
+    console.log('_________________________________________');
+});
+
 module.exports = sequelize

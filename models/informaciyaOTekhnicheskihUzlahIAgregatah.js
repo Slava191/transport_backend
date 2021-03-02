@@ -41,6 +41,6 @@ ATS.belongsTo(Model, {foreignKey: 'informaciya_o_tekhnicheskih_uzlah_i_agregatah
 Model.sync().then(result=>{
     //console.log(result);
 })
-.catch(err=> console.log(err));
+.catch(err=> err);
 
 module.exports = Model
