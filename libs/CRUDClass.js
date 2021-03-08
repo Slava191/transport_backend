@@ -23,7 +23,10 @@ module.exports = class BasicController{
     async findAll(){
         return await this.Model.findAll({
             raw:true, 
-            include: [User]
+            include: [User],
+            order: [
+                ['id', 'DESC'],
+            ],
         })
     }
 
