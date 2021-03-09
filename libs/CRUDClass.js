@@ -20,6 +20,11 @@ module.exports = class BasicController{
 
     }
 
+    async destroy(params){
+        //Возвращает кол-во удаленных строк
+        return await this.Model.destroy(params)
+    }
+
     async findAll(){
         return await this.Model.findAll({
             raw:true, 
