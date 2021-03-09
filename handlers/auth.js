@@ -8,9 +8,9 @@ exports.init = app => app.use((req, res, next) => {
 
         if(req.isAuthenticated){
 
-            const { id, login, role, tariff } = user
+            const { id, login, role, tariff, fullName } = user
 
-            req.user = { id, login, role, tariff }
+            req.user = { id, login, role, tariff, fullName }
 
         }
 

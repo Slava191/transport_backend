@@ -89,7 +89,7 @@ exports.addUser = async function (req, res){
 
         //TODO: Необходимо сделать, что только админ может передлать role и tariff
 
-        let { login, password, role, tariff }  = req.body
+        let { fullName, login, password, role, tariff }  = req.body
 
         if(!login || !password) throw new Error("Login and password can't be empty value")
 
@@ -104,7 +104,7 @@ exports.addUser = async function (req, res){
             role = 'admin'
         }
 
-        const user = await User.create({ login, password, role, tariff })
+        const user = await User.create({ fullName, login, password, role, tariff })
 
         res.send(user)
 
