@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const HodovyeKachestva = require("../models/hodovyeKachestva");
+const { hodovye_kachestva: HodovyeKachestva } = require('../sequelize').models
+
 const CRUDClass = require("../libs/CRUDClass");
 const CRUDRoutes = require("../libs/CRUDRoutes");
 

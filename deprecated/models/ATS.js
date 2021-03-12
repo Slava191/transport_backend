@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../libs/sequelize")
 
-// const User = require("./user")
-// const HodovoeKachestvo = require("./hodovoeKachestvo");
+const User = require("./user")
+const Gabarity = require("./gabarity");
 
 const ATS = sequelize.define("ATS", {
     id: {
@@ -19,6 +19,12 @@ const ATS = sequelize.define("ATS", {
     },
     gabarity_id: {
         type: Sequelize.INTEGER,
+        references: {
+            model: Gabarity,
+            key: "id",
+            onDelete: 'RESTRICT',
+            onUpdate: 'RESTRICT'
+        }
     },
     harakteristiki_dvigatelya_id: {
         type: Sequelize.INTEGER,
@@ -52,7 +58,7 @@ const ATS = sequelize.define("ATS", {
 
 
 ATS.sync().then(result=>{
-    //console.log(result);
+    console.log(result);
 })
 .catch(err=> err);
 

@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Model = require("../models/massa");
+const { massa: Model } = require('../sequelize').models
+
 const CRUDClass = require("../libs/CRUDClass");
 const CRUDRoutes = require("../libs/CRUDRoutes");
 

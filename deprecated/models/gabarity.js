@@ -41,11 +41,13 @@ const Gabarity = sequelize.define("gabarity", {
     },
 });
 
-Gabarity.hasMany(ATS, {foreignKey: 'gabarity_id'})
-ATS.belongsTo(Gabarity, {foreignKey: 'gabarity_id'})
+
+// Gabarity.hasMany(ATS, { foreignKey: 'gabarity_id'})
+// ATS.belongsTo(Gabarity, {foreignKey: 'gabarity_id'})
+
 
 Gabarity.sync().then(result=>{
-    //console.log(result);
+    console.log(result);
 })
 .catch(err=> err);
 

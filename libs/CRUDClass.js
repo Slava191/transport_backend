@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const { user: User } = require('../sequelize').models
 
 module.exports = class BasicController{
 

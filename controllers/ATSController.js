@@ -1,9 +1,4 @@
-const User = require("../models/user");
-const ATS = require("../models/ATS");
-// const HodovyeKachestva = require("../models/hodovyeKachestva");
-// const Gabarity = require("../models/gabarity")
-
-//const sequelize = require("../libs/sequelize")
+const { user: User, ATS } = require('../sequelize').models
 
 exports.getAllATS = async function(req, res){
 
