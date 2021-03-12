@@ -39,11 +39,23 @@ module.exports = (router, CRUDClass, Model) => {
         })
         .delete("/:id", async function(req, res){
 
-            const { id } = req.params
+            try{
 
-            const numOfDeletedRows = await req.instanceOfCRUDClass.destroy({ where: { id } })
+                const { id } = req.params
 
-            res.send({ numOfDeletedRows })
+                const numOfDeletedRows = await req.instanceOfCRUDClass.destroy({ where: { id } })
+
+                if(numOfDeletedRows){
+                    res.status(200).end();
+                }else{
+                    throw new Error("Ошибка")
+                }
+
+            }catch(err){
+
+                res.status(400).send(err);
+
+            }
 
         })
 
