@@ -39,6 +39,8 @@ applyExtraSetup(sequelize);
 async function reset() {
 
 	try{
+
+
 		await sequelize.sync({ force: true });
 		console.log("Tables have been created");
 

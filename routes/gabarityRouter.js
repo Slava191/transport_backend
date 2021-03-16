@@ -3,9 +3,8 @@ const router = express.Router();
 
 const { gabarity: Gabarity } = require('../sequelize').models
 
-const CRUDClass = require("../libs/CRUDClass");
 const CRUDRoutes = require("../libs/CRUDRoutes");
 
-CRUDRoutes(router, CRUDClass, Gabarity);
+CRUDRoutes(router, Gabarity);
 
 module.exports = router;

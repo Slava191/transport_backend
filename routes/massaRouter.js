@@ -3,9 +3,8 @@ const router = express.Router();
 
 const { massa: Model } = require('../sequelize').models
 
-const CRUDClass = require("../libs/CRUDClass");
 const CRUDRoutes = require("../libs/CRUDRoutes");
 
-CRUDRoutes(router, CRUDClass, Model);
+CRUDRoutes(router, Model);
 
 module.exports = router;

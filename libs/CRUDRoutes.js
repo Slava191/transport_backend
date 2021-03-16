@@ -1,15 +1,22 @@
-module.exports = (router, CRUDClass, Model) => {
+const { user: User } = require('../sequelize').models
+
+module.exports = (router, Model) => {
 
     router
         .use((req, res, next)=> {
 
-                req.instanceOfCRUDClass = new CRUDClass(Model, req.user)
-                next()
+            next()
 
         })
         .get("/", async function(req, res){
 
-            const list = await req.instanceOfCRUDClass.findAll()
+            const list = await Model.findAll({
+                raw:true, 
+                include: [User],
+                order: [
+                    ['id', 'DESC'],
+                ],
+            })
 
             res.send(list)
 
@@ -18,7 +25,7 @@ module.exports = (router, CRUDClass, Model) => {
 
             const { id } = req.params
 
-            const entry = await req.instanceOfCRUDClass.Model.findByPk(id)
+            const entry = await Model.findByPk(id)
 
             res.send(entry)
 
@@ -27,14 +34,40 @@ module.exports = (router, CRUDClass, Model) => {
 
             const data = req.body
 
-            const newEntry = await req.instanceOfCRUDClass.create(data)
-    
+            let newEntry = await Model.create({
+                ...data, 
+                user_id: req.user.id
+            })
+
+            newEntry = await Model.findByPk(newEntry.id, {raw:true, include: [User]})
+
+
             res.send(newEntry)
 
         })
-        .put("/", async function(req, res){
+        .put("/:id", async function(req, res){
 
-            res.send(true)
+            try{
+
+                const data = req.body
+                const { id } = req.params
+
+                const [updateRes] = await Model.update(
+                    data, 
+                    { where: { id } }
+                )
+
+                if(updateRes){
+                    res.status(200).end();
+                }else{
+                    throw new Error("Ошибка")
+                }
+
+            }catch(err){
+
+                res.status(400).send(err);
+
+            }
 
         })
         .delete("/:id", async function(req, res){
@@ -43,7 +76,7 @@ module.exports = (router, CRUDClass, Model) => {
 
                 const { id } = req.params
 
-                const numOfDeletedRows = await req.instanceOfCRUDClass.destroy({ where: { id } })
+                const numOfDeletedRows = await Model.destroy({ where: { id } })
 
                 if(numOfDeletedRows){
                     res.status(200).end();
