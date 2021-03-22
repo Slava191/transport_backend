@@ -1,6 +1,8 @@
-const express = require('express')
+const express = require('express');
+const fileUpload = require('express-fileupload');
 const app = express()
 
+require('./handlers/fileUpload').init(app);
 require('./handlers/bodyParser').init(app);
 require('./handlers/cors').init(app);
 require('./handlers/auth').init(app);
@@ -13,6 +15,7 @@ const   userRouter = require("./routes/userRouter.js")
         informaciyaOTekhnicheskihUzlahIAgregatahRouter = require("./routes/informaciyaOTekhnicheskihUzlahIAgregatahRouter")
         massaRouter = require("./routes/massaRouter")
         transmissiyaIKolyosaRouter = require("./routes/transmissiyaIKolyosaRouter") 
+        upload = require("./routes/upload")
 
 app
         .use("/users", userRouter)
@@ -23,5 +26,6 @@ app
         .use("/informaciyaOTekhnicheskihUzlahIAgregatah", informaciyaOTekhnicheskihUzlahIAgregatahRouter)
         .use("/massa", massaRouter)
         .use("/transmissiyaIKolyosa", transmissiyaIKolyosaRouter)
+        .use("/upload", upload)
 
 module.exports = app

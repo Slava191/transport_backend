@@ -2,6 +2,7 @@ function applyExtraSetup(sequelize) {
 
 	const {  
 		ATS,
+		ATSFile,
 		gabarity,
 		harakteristiki_dvigatelya,
 		hodovye_kachestva,
@@ -11,8 +12,17 @@ function applyExtraSetup(sequelize) {
 		user
 	} = sequelize.models
 
+	//Связь: user - ATS
 	user.hasMany(ATS, { foreignKey: 'user_id', onDelete: 'SET NULL' })
 	ATS.belongsTo(user, {foreignKey: 'user_id'})
+
+	//Связь: user - ATSFiles
+	user.hasMany(ATSFile, { foreignKey: 'user_id', onDelete: 'SET NULL' })
+	ATSFile.belongsTo(user, {foreignKey: 'user_id'})
+
+	//Связь: ATS - ATSFiles
+	ATS.hasMany(ATSFile, { foreignKey: 'ATS_id', onDelete: 'CASCADE' })
+	ATSFile.belongsTo(ATS, {foreignKey: 'ATS_id'})
 
 	const contentItems = [
 		gabarity,
@@ -23,6 +33,7 @@ function applyExtraSetup(sequelize) {
 		transmissiya_i_kolyosa
 	]
 
+	//Связи: Комплектующие - ATS, Пользователи - Комплектующие
 	for(const item of contentItems){
 
 		console.log(`${item.name}_id`)

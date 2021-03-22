@@ -13,6 +13,7 @@ const sequelize = new Sequelize(
 
 const modelDefiners = [
 	require('./models/ATS'),
+	require('./models/ATSFile'),
 	require('./models/gabarity'),
 	require('./models/harakteristikiDvigatelya'),
 	require('./models/hodovyeKachestva'),
