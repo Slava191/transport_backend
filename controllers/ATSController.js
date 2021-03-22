@@ -5,14 +5,12 @@ exports.getAllATS = async function(req, res){
     try{
 
         let allATS = await ATS.findAll({
-            raw:true, 
-            include: [User],
+            // raw:true, 
+            include: [ User, ATSFile ],
             order: [
                 ['id', 'DESC']
             ]
         })
-
-        //let [ allATS ] = await sequelize.query('SELECT a.*, u.login FROM ATs a INNER JOIN users u ON a.user_id = u.id')
 
         res.send(allATS)
 
@@ -64,8 +62,8 @@ exports.addATS = async function (req, res){
 
         res.send(addedATS)
 
-    }catch(e){
-        console.log(e)
+    }catch(err){
+        res.status(400).send(err);
     }
 
 }

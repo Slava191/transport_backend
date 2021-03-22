@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
     },
     fullName: {
       type: DataTypes.STRING,
-    },
-	});
+    }
+	}, {
+    defaultScope: {
+      attributes: { exclude: ['password'] }
+    }
+  });
 };

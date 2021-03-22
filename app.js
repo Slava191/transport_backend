@@ -3,7 +3,7 @@ const fileUpload = require('express-fileupload');
 const app = express()
 
 require('./handlers/fileUpload').init(app);
-require('./handlers/bodyParser').init(app);
+require('./handlers/expressAppSetup').init(app);
 require('./handlers/cors').init(app);
 require('./handlers/auth').init(app);
 
