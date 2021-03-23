@@ -19,7 +19,7 @@ async function init() {
 	await assertDatabaseConnectionOk();
 
   app.listen(config.get('server.port'), () => {
-    console.log(`API listening at http://localhost:${config.get('server.port')}`)
+    console.log(`API listening at http://localhost:${config.get('server.port')}. Running mode: ${config.get('server.runningMode')}`)
   })
   
   clientApp.listen(8081, () => {

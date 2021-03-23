@@ -1,5 +1,4 @@
 const express = require('express');
-const fileUpload = require('express-fileupload');
 const app = express()
 
 require('./handlers/fileUpload').init(app);

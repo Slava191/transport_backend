@@ -1,4 +1,5 @@
 const { user: User, ATS, ATSFile } = require('../sequelize').models
+const FileWorker = require('../libs/FileWorker')
 
 exports.getAllATS = async function(req, res){
 
@@ -34,35 +35,17 @@ exports.addATS = async function (req, res){
             user_id
         })
 
-        if(Array.isArray(files)){
+        const fileWorker = new FileWorker()
 
-            for(const file of files){ 
-
-                file.mv('./uploads/'+file.name); 
-
-                await ATSFile.create({
-                    name: file.name,
-                    ATS_id: addedATS.id,
-                    user_id
-                })
-
-            }
-
-        }else{
-
-            files.mv('./uploads/'+files.name);
-
-            await ATSFile.create({
-                name: files.name,
-                ATS_id: addedATS.id,
-                user_id
-            })
-
-        }
+        await fileWorker.manyFilesUploadAndSaveItInDB(files, ATSFile, {
+            ATS_id: addedATS.id,
+            user_id
+        })
 
         res.send(addedATS)
 
     }catch(err){
+        console.log(err)
         res.status(400).send(err);
     }
 

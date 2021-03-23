@@ -2,30 +2,22 @@ require('dotenv').config()
 const path = require('path');
 
 module.exports = {
-  secret: process.env.SECRET || 'mysecret',
-  jwtSecret: process.env.JWTSECRET || 'mysecretkey12345',
+  secret: process.env.SECRET,
+  jwtSecret: process.env.JWTSECRET,
   root: process.cwd(),
   sequalize: {
-    database: "TRANSPORTDEV",
-    login: "sa",
-    password: "123456"
-    // database: "transport",
-    // login: "root",
-    // password: ""
-  },
-  mysql: {
-    dialect: "mysql",
-    host: "localhost",
-    port: 3307
+    database: process.env.DATABASE,
+    login: process.env.DATABASE_LOGIN,
+    password: process.env.DATABASE_PASSWORD
   },
   mssql: {
     dialect: "mssql",
     host: "localhost",
-    port: "1433"
+    port: 1433
   },
   server: {
-    host: 'http://localhost',
-    runningMode: process.env.NODE_ENV || 'development',
-    port: 3001
+    host: process.env.SERVER_HOST,
+    runningMode: process.env.NODE_ENV,
+    port: process.env.SERVER_PORT
   }
 };
