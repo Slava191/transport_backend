@@ -5,5 +5,6 @@ const ATSRouter = express.Router();
 ATSRouter
         .get("/", ATSController.getAllATS)
         .post("/", ATSController.addATS)
+        .delete("/:id", ATSController.deleteATS)
  
 module.exports = ATSRouter;

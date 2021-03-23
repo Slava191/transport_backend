@@ -17,5 +17,14 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
         }
-	});
+	}, 
+    // {
+    //     hooks: {
+    //         beforeDestroy: (file, options) => {
+    //           console.log(file)
+    //           console.log(options)
+    //         }
+    //     },
+    // }
+    );
 };

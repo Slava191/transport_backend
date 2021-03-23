@@ -24,6 +24,11 @@ function applyExtraSetup(sequelize) {
 	ATS.hasMany(ATSFile, { foreignKey: 'ATS_id', onDelete: 'CASCADE' })
 	ATSFile.belongsTo(ATS, {foreignKey: 'ATS_id'})
 
+	// ATS.addHook('beforeDestroy', (file, options) => {
+	// 	console.log("Хук!!!")
+	// 	console.log(file, options)
+	// });
+
 	const contentItems = [
 		gabarity,
 		harakteristiki_dvigatelya,

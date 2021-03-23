@@ -15,8 +15,8 @@ exports.getAllATS = async function(req, res){
 
         res.send(allATS)
 
-    }catch(e){
-        console.log(e)
+    }catch(err){
+        console.log(err)
     }
 
 };
@@ -47,6 +47,40 @@ exports.addATS = async function (req, res){
     }catch(err){
         console.log(err)
         res.status(400).send(err);
+    }
+
+}
+
+exports.deleteATS = async function (req, res){
+
+    try{
+
+        const { id } = req.params
+
+        const attachedFiles = await ATSFile.findAll({ where: { ATS_id: id } })
+
+        //Удалит запись и файлы (по cascade) из БД
+        const numOfDeletedRows = await ATS.destroy({ where: { id } })
+
+        //Однако, физически файлы придется удалять вот так (или написать хук, но не знаю что лучше...):
+        const fileWorker = new FileWorker()
+
+        for(const { name } of attachedFiles)
+            fileWorker.unlink(name)
+        
+
+        if(numOfDeletedRows){
+            res.status(200).end();
+        }else{
+            throw new Error("Ошибка")
+        }
+
+    }catch(err){
+
+        console.log(err)
+
+        res.status(400).send(err);
+
     }
 
 }

@@ -1,3 +1,5 @@
+const { unlink } = require('fs');
+
 module.exports = class {
     constructor(){}
 
@@ -24,6 +26,14 @@ module.exports = class {
             await this.fileUploadAndSaveItInDB(files, table, payload)
         }
 
+    }
+
+    async unlink(fileName){
+
+        unlink(`./uploads/${fileName}`, (err) => {
+            if (err) throw err;
+        });
+        
     }
 
     getFileExt(file){

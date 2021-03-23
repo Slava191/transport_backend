@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
 	config.get('sequalize.password'), 
 	{
 		...config.get('mssql'),
-		logging: false
+		logging: false,
 	}
 );
 
