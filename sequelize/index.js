@@ -8,7 +8,8 @@ const sequelize = new Sequelize(
 	config.get('sequalize.login'), 
 	config.get('sequalize.password'), 
 	{
-		...config.get('mssql')
+		...config.get('mssql'),
+		logging: false
 	}
 );
 

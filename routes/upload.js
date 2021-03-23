@@ -4,29 +4,35 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
     try {
-        if(!req.files) {
-            res.send({
-                status: false,
-                message: 'No file uploaded'
-            });
-        } else {
+
+
+        console.log(req.files)
+
+        res.send({message: 'File is uploaded'})
+
+        // if(!req.files) {
+        //     res.send({
+        //         status: false,
+        //         message: 'No file uploaded'
+        //     });
+        // } else {
             
-            console.log(req.files)
+        //     console.log(req.files)
 
-            let file = req.files.file;
+        //     let file = req.files.file;
 
-            file.mv('./uploads/'+file.name);
+        //     file.mv('./uploads/'+file.name);
 
-            res.send({
-                status: true,
-                message: 'File is uploaded',
-                data: {
-                    name: file.name,
-                    mimetype: file.mimetype,
-                    size: file.size
-                }
-            });
-        }
+        //     res.send({
+        //         status: true,
+        //         message: 'File is uploaded',
+        //         data: {
+        //             name: file.name,
+        //             mimetype: file.mimetype,
+        //             size: file.size
+        //         }
+        //     });
+        // }
     } catch (err) {
         res.status(500).send(err);
     }
