@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@frangiskos/mssql": "^0.4.0",
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "config": "^3.3.2",
     "cors": "^2.8.5",

@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     }
 	}, {
     defaultScope: {
-      attributes: { exclude: ['password'] }
+      //attributes: { exclude: ['password'] }
     }
   });
 };
