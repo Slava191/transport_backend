@@ -1,5 +1,8 @@
 const { DataTypes } = require('sequelize');
 
+const massa = require('../../model_description/massa')
+const sequelizeDefineAdapter = require('../../model_description/sequelizeDefineAdapter')
+
 module.exports = (sequelize) => {
 	sequelize.define('massa', {
         id: {
@@ -11,18 +14,7 @@ module.exports = (sequelize) => {
         user_id:{
             type: DataTypes.INTEGER,
         },
-        Snaryazhyonnaya_massa_perednyaya_os:{
-            type: DataTypes.INTEGER
-        },
-        Snaryazhyonnaya_massa_zadnyaya_os:{
-            type: DataTypes.INTEGER
-        },
-        Polnaya_massa_perednyaya_os:{
-            type: DataTypes.INTEGER
-        },
-        Polnaya_massa_zadnyaya_os:{
-            type: DataTypes.INTEGER
-        }
+        ...sequelizeDefineAdapter(massa, DataTypes)
         // Dopustimaya_polnaya_massa_avtomobilya: {
         //     type: DataTypes.INTEGER,
         // },
