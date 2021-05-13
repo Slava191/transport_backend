@@ -112,15 +112,31 @@ const insertTestData = async (sequelize) => {
         },
     ]);
 
+
+    await sequelize.models.bortovoe_napryazhenie.bulkCreate([
+        {
+            user_id: 1,
+            Bortovoe_napryazhenie: 220,
+        },
+    ]);
+
+    await sequelize.models.kabina.bulkCreate([
+        {
+            user_id: 1,
+            Kabina: "расположенная над двигателем, рестайлинговая",
+        },
+    ]);
     
     await sequelize.models.informaciya_o_tekhnicheskih_uzlah_i_agregatah.bulkCreate([
         {
             user_id: 1,
-            Bortovoe_napryazhenie: 220,
+            kabina_id:1,
+            bortovoe_napryazhenie:1,
             Obyom_toplivnyh_bakov: 350,
-            Markirovka_zadnih_mostov: "ВАЗ 2101",
-            Varianty_dop_osevyh_nagruzok: "-",
-            Primechaniya: "",
+            //Bortovoe_napryazhenie: 220,
+            // Markirovka_zadnih_mostov: "ВАЗ 2101",
+            // Varianty_dop_osevyh_nagruzok: "-",
+            // Primechaniya: "",
         },
     ]);
 

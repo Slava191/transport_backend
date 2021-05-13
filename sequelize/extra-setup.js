@@ -10,58 +10,64 @@ function applyExtraSetup(sequelize) {
 			cilindri,
 		hodovye_kachestva,
 		informaciya_o_tekhnicheskih_uzlah_i_agregatah,
+			bortovoe_napryazhenie,
+			kabina,
 		massa,
 		transmissiya_i_kolyosa,
 		user
 	} = sequelize.models
 
-	//Связь: user - ATS
-	user.hasMany(ATS, { foreignKey: 'user_id', onDelete: 'SET NULL' })
-	ATS.belongsTo(user, {foreignKey: 'user_id'})
+	const setOneToMany = (entityOne, entityTwo, onDelete = 'NO ACTION') => {
 
-	//Связь: user - ATSFiles
-	user.hasMany(ATSFile, { foreignKey: 'user_id', onDelete: 'SET NULL' })
-	ATSFile.belongsTo(user, {foreignKey: 'user_id'})
+		console.log(`Установлена связь 1:М (${entityOne.name}:${entityTwo.name}, onDelete: ${onDelete})`)
+
+		entityOne.hasMany(entityTwo, { foreignKey: `${entityOne.name}_id`, onDelete })
+		entityTwo.belongsTo(entityOne, {foreignKey: `${entityOne.name}_id`})
+	}
+	
+	const setOneToManyWithArrOfEntiesTwo = (entityOne, arrOfEntities, onDelete = 'NO ACTION') => {
+		for(const entityTwo of arrOfEntities)
+			setOneToMany(entityOne, entityTwo, onDelete)	
+	}
+
+	const setOneToManyWithArrOfEntiesOne = (arrOfEntities, entityTwo, onDelete = 'NO ACTION') => {
+		for(const entityOne of arrOfEntities)
+			setOneToMany(entityOne, entityTwo, onDelete)
+	}
+
+	//Все сущнности, исключая пользователя
+	const modelsArrExcludingUser = Object.values(sequelize.models).filter(model => model.name !== 'user')
+
+	//Связи: пользователь - все сущности.
+	setOneToManyWithArrOfEntiesTwo(user, modelsArrExcludingUser, 'SET NULL')
 
 	//Связь: ATS - ATSFiles
-	ATS.hasMany(ATSFile, { foreignKey: 'ATS_id', onDelete: 'CASCADE' })
-	ATSFile.belongsTo(ATS, {foreignKey: 'ATS_id'})
+	setOneToMany(ATS, ATSFile, 'CASCADE')
 
-	// ATS.addHook('beforeDestroy', (file, options) => {
-	// 	console.log("Хук!!!")
-	// 	console.log(file, options)
-	// });
-
-	const contentItems = [
+	//Связи: Комплектующие - ATS
+	setOneToManyWithArrOfEntiesOne([
 		gabarity,
 		harakteristiki_dvigatelya,
 		hodovye_kachestva,
 		informaciya_o_tekhnicheskih_uzlah_i_agregatah,
 		massa,
 		transmissiya_i_kolyosa
-	]
-
-	//Связи: Комплектующие - ATS, Пользователи - Комплектующие
-	for(const item of contentItems){
-
-		console.log(`${item.name}_id`)
-
-		item.hasMany(ATS, { foreignKey: `${item.name}_id`, onDelete: 'NO ACTION' });
-		ATS.belongsTo(item, { foreignKey: `${item.name}_id`})
-
-		user.hasMany(item, { foreignKey: 'user_id',  onDelete: 'SET NULL'})
-		item.belongsTo(user, {foreignKey: 'user_id'})	
-	}
-
-	cilindri.hasMany(dvigatel, { foreignKey: `cilindri_id`, onDelete: 'NO ACTION' });
-	dvigatel.belongsTo(cilindri, { foreignKey: `cilindri_id`})
-
-	dvigatel.hasMany(harakteristiki_dvigatelya, { foreignKey: `dvigatel_id`, onDelete: 'NO ACTION' });
-	harakteristiki_dvigatelya.belongsTo(dvigatel, { foreignKey: `dvigatel_id`})
-
-	korobka_peredach.hasMany(harakteristiki_dvigatelya, { foreignKey: `korobka_peredach_id`, onDelete: 'NO ACTION' });
-	harakteristiki_dvigatelya.belongsTo(korobka_peredach, { foreignKey: `korobka_peredach_id`})
+	], ATS)
 	
+	//Связь: цилиндры - двигтель
+	setOneToMany(cilindri, dvigatel)
+
+	//Связи: дочернии - хар-ки двигателя
+	setOneToManyWithArrOfEntiesOne(
+		[dvigatel, korobka_peredach], 
+		harakteristiki_dvigatelya
+	)
+	
+	//Связи: дочернии - тех-кие хар-ки авто
+	setOneToManyWithArrOfEntiesOne(
+		[bortovoe_napryazhenie, kabina], 
+		informaciya_o_tekhnicheskih_uzlah_i_agregatah
+	)
 
 }
 

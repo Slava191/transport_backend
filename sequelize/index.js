@@ -23,6 +23,8 @@ const modelDefiners = [
 		require('./models/harakteristikiDvigatelyaChildTable/cilindri'),
 	require('./models/hodovyeKachestva'),
 	require('./models/informaciyaOTekhnicheskihUzlahIAgregatah'),
+		require('./models/informaciyaOTekhnicheskihUzlahIAgregatahChildTable/bortovoeNapryazhenie'),
+		require('./models/informaciyaOTekhnicheskihUzlahIAgregatahChildTable/kabina'),
 	require('./models/massa'),
 	require('./models/transmissiyaIKolyosa'),
 	require('./models/user'),
