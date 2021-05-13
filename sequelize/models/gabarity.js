@@ -20,17 +20,17 @@ module.exports = (sequelize) => {
         Gabaritnye_razmery_vysota: {
             type: DataTypes.INTEGER,
         },
-        Vysota_shassi_v_zavisimosti_ot_konstrukcii: {
-            type: DataTypes.STRING,
-        },
-        Baza: {
-            type: DataTypes.INTEGER,
-        },
-        Pogruzochnaya_vysota: {
-            type: DataTypes.INTEGER,
-        },
-        Primechaniya: {
-            type: DataTypes.STRING,
-        },
+        // Vysota_shassi_v_zavisimosti_ot_konstrukcii: {
+        //     type: DataTypes.STRING,
+        // },
+        // Baza: {
+        //     type: DataTypes.INTEGER,
+        // },
+        // Pogruzochnaya_vysota: {
+        //     type: DataTypes.INTEGER,
+        // },
+        // Primechaniya: {
+        //     type: DataTypes.STRING,
+        // },
 	});
 };

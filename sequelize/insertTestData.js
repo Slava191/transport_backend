@@ -33,26 +33,71 @@ const insertTestData = async (sequelize) => {
         },
     ]);
 
-    await sequelize.models.harakteristiki_dvigatelya.bulkCreate([
+    await sequelize.models.cilindri.bulkCreate([
         {
             user_id: 1,
-            Dvigatel: "Дизель турбонаддув",
             Raspolozhenie_i_chislo_cilindrov: 4,
-            Rabochij_obyom_dvigatelya: 10,
-            Moshchnost: 300,
-            Krutyashch_moment: 100,
-            Raskhod_topliva: 5,
-            Primechaniya: "Модель 740.55",
         },
         {
             user_id: 1,
+            Raspolozhenie_i_chislo_cilindrov: 8,
+        },
+    ]);
+
+    await sequelize.models.dvigatel.bulkCreate([
+        {
+            user_id: 1,
+            cilindri_id: 1,
+            Dvigatel: "Дизель турбонаддув",
+            Rabochij_obyom_dvigatelya: 10,
+            Moshchnost: 300,
+            Krutyashch_moment: 100,
+        },
+        {
+            user_id: 1,
+            cilindri_id: 2,
             Dvigatel: "Бензиновый",
-            Raspolozhenie_i_chislo_cilindrov: 4,
             Rabochij_obyom_dvigatelya: 10,
             Moshchnost: 10000,
             Krutyashch_moment: 100,
+        },
+    ]);
+
+    await sequelize.models.korobka_peredach.bulkCreate([
+        {
+            user_id: 1,
+            Tip: "МКПП"
+        },
+        {
+            user_id: 1,
+            Tip: "АКПП"
+        },
+    ]);
+
+    await sequelize.models.harakteristiki_dvigatelya.bulkCreate([
+        {
+            user_id: 1,
             Raskhod_topliva: 5,
-            Primechaniya: "",
+            korobka_peredach_id: 1,
+            dvigatel_id: 1,
+            // Dvigatel: "Дизель турбонаддув",
+            // Raspolozhenie_i_chislo_cilindrov: 4,
+            // Rabochij_obyom_dvigatelya: 10,
+            // Moshchnost: 300,
+            // Krutyashch_moment: 100,
+            // Primechaniya: "Модель 740.55",
+        },
+        {
+            user_id: 1,
+            Raskhod_topliva: 5,
+            korobka_peredach_id: 2,
+            dvigatel_id: 2,
+            // Dvigatel: "Бензиновый",
+            // Raspolozhenie_i_chislo_cilindrov: 4,
+            // Rabochij_obyom_dvigatelya: 10,
+            // Moshchnost: 10000,
+            // Krutyashch_moment: 100,
+            // Primechaniya: "",
         },
     ]);
 

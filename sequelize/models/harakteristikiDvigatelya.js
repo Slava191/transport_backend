@@ -11,26 +11,32 @@ module.exports = (sequelize) => {
         user_id:{
             type: DataTypes.INTEGER,
         },
-        Dvigatel: {
-            type: DataTypes.STRING,
-        },
-        Raspolozhenie_i_chislo_cilindrov: {
-            type: DataTypes.STRING,
-        },
-        Rabochij_obyom_dvigatelya: {
+        korobka_peredach_id: {
             type: DataTypes.INTEGER,
         },
-        Moshchnost: {
-            type: DataTypes.INTEGER,
-        },
-        Krutyashch_moment: {
+        dvigatel_id: {
             type: DataTypes.INTEGER,
         },
         Raskhod_topliva: {
             type: DataTypes.INTEGER,
         },
-        Primechaniya: {
-            type: DataTypes.STRING,
-        },
+        // Dvigatel: {
+        //     type: DataTypes.STRING,
+        // },
+        // Raspolozhenie_i_chislo_cilindrov: {
+        //     type: DataTypes.STRING,
+        // },
+        // Rabochij_obyom_dvigatelya: {
+        //     type: DataTypes.INTEGER,
+        // },
+        // Moshchnost: {
+        //     type: DataTypes.INTEGER,
+        // },
+        // Krutyashch_moment: {
+        //     type: DataTypes.INTEGER,
+        // },
+        // Primechaniya: {
+        //     type: DataTypes.STRING,
+        // },
 	});
 };

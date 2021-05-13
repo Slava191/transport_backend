@@ -5,6 +5,9 @@ function applyExtraSetup(sequelize) {
 		ATSFile,
 		gabarity,
 		harakteristiki_dvigatelya,
+			korobka_peredach,
+			dvigatel,
+			cilindri,
 		hodovye_kachestva,
 		informaciya_o_tekhnicheskih_uzlah_i_agregatah,
 		massa,
@@ -49,6 +52,15 @@ function applyExtraSetup(sequelize) {
 		user.hasMany(item, { foreignKey: 'user_id',  onDelete: 'SET NULL'})
 		item.belongsTo(user, {foreignKey: 'user_id'})	
 	}
+
+	cilindri.hasMany(dvigatel, { foreignKey: `cilindri_id`, onDelete: 'NO ACTION' });
+	dvigatel.belongsTo(cilindri, { foreignKey: `cilindri_id`})
+
+	dvigatel.hasMany(harakteristiki_dvigatelya, { foreignKey: `dvigatel_id`, onDelete: 'NO ACTION' });
+	harakteristiki_dvigatelya.belongsTo(dvigatel, { foreignKey: `dvigatel_id`})
+
+	korobka_peredach.hasMany(harakteristiki_dvigatelya, { foreignKey: `korobka_peredach_id`, onDelete: 'NO ACTION' });
+	harakteristiki_dvigatelya.belongsTo(korobka_peredach, { foreignKey: `korobka_peredach_id`})
 	
 
 }

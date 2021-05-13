@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-	sequelize.define('hodovye_kachestva', {
+	sequelize.define('dvigatel', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -11,20 +11,20 @@ module.exports = (sequelize) => {
         user_id:{
             type: DataTypes.INTEGER,
         },
-        Radius_povorota: {
+        cilindri_id:{
             type: DataTypes.INTEGER,
         },
-        Maksimalno_preodolevaemyj_podyom: {
+        Dvigatel: {
+            type: DataTypes.STRING,
+        },
+        Rabochij_obyom_dvigatelya: {
             type: DataTypes.INTEGER,
         },
-        // Koleya: {
-        //     type: DataTypes.INTEGER,
-        // },
-        Maks_skorost: {
+        Moshchnost: {
             type: DataTypes.INTEGER,
         },
-        // Primechaniya: {
-        //     type: DataTypes.STRING,
-        // },
+        Krutyashch_moment: {
+            type: DataTypes.INTEGER,
+        },
 	});
 };
