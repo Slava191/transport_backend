@@ -1,6 +1,9 @@
 const { Sequelize } = require('sequelize');
 const { applyExtraSetup } = require('./extra-setup');
 const { insertTestData } = require('./insertTestData')
+const modelsFatory = require('../model_description/modelsFatory')
+const fs = require("fs")
+//const massa = require('../model_description/models/massa')
 const config = require('config');
 
 const sequelize = new Sequelize(
@@ -16,19 +19,11 @@ const sequelize = new Sequelize(
 const modelDefiners = [
 	require('./models/ATS'),
 	require('./models/ATSFile'),
-	require('./models/gabarity'),
-	require('./models/harakteristikiDvigatelya'),
-		require('./models/harakteristikiDvigatelyaChildTable/korobkaPeredach'),
-		require('./models/harakteristikiDvigatelyaChildTable/dvigatel'),
-		require('./models/harakteristikiDvigatelyaChildTable/cilindri'),
-	require('./models/hodovyeKachestva'),
-	require('./models/informaciyaOTekhnicheskihUzlahIAgregatah'),
-		require('./models/informaciyaOTekhnicheskihUzlahIAgregatahChildTable/bortovoeNapryazhenie'),
-		require('./models/informaciyaOTekhnicheskihUzlahIAgregatahChildTable/kabina'),
-	require('./models/massa'),
-	require('./models/transmissiyaIKolyosa'),
+	...fs.readdirSync("./model_description/models").map((fileName) => {
+		return () => modelsFatory(sequelize, require(`../model_description/models/${fileName}`))
+	}),
 	require('./models/user'),
-];
+]
 
 // We define all models according to their files.
 for (const modelDefiner of modelDefiners) {
@@ -53,7 +48,7 @@ async function reset() {
 		console.log("Tables have been created");
 
 
-		await insertTestData(sequelize);
+		//await insertTestData(sequelize);
 		console.log("Test data have been inserted");
 
 		//ЗАПОЛНИТЬ ВСЕ

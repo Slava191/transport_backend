@@ -3,17 +3,23 @@ function applyExtraSetup(sequelize) {
 	const {  
 		ATS,
 		ATSFile,
+		bortovoe_napryazhenie,
+		cilindry,
+		dvigatel,
 		gabarity,
+		gruppa_ATS,
 		harakteristiki_dvigatelya,
-			korobka_peredach,
-			dvigatel,
-			cilindri,
+		harakteristiki_pricepov,
 		hodovye_kachestva,
-		informaciya_o_tekhnicheskih_uzlah_i_agregatah,
-			bortovoe_napryazhenie,
-			kabina,
+		kabina,
+		kolesnaya_formula,
+		koliosa,
+		korobka_peredach,
 		massa,
-		transmissiya_i_kolyosa,
+		tech_harakteristiki_avto,
+		tip_ATS,
+		tip_shin,
+		ves_pricepov,
 		user
 	} = sequelize.models
 
@@ -44,30 +50,37 @@ function applyExtraSetup(sequelize) {
 	//Связь: ATS - ATSFiles
 	setOneToMany(ATS, ATSFile, 'CASCADE')
 
+	console.log(Object.values(sequelize.models))
+
 	//Связи: Комплектующие - ATS
 	setOneToManyWithArrOfEntiesOne([
+		dvigatel,
 		gabarity,
+		gruppa_ATS,
 		harakteristiki_dvigatelya,
+		harakteristiki_pricepov,
 		hodovye_kachestva,
-		informaciya_o_tekhnicheskih_uzlah_i_agregatah,
+		kolesnaya_formula,
+		koliosa,
+		korobka_peredach,
 		massa,
-		transmissiya_i_kolyosa
+		tech_harakteristiki_avto,
+		tip_ATS,
+		ves_pricepov,
 	], ATS)
 	
 	//Связь: цилиндры - двигтель
-	setOneToMany(cilindri, dvigatel)
+	setOneToMany(cilindry, dvigatel)
 
-	//Связи: дочернии - хар-ки двигателя
-	setOneToManyWithArrOfEntiesOne(
-		[dvigatel, korobka_peredach], 
-		harakteristiki_dvigatelya
-	)
-	
+	setOneToMany(dvigatel, harakteristiki_dvigatelya)
+
 	//Связи: дочернии - тех-кие хар-ки авто
 	setOneToManyWithArrOfEntiesOne(
 		[bortovoe_napryazhenie, kabina], 
-		informaciya_o_tekhnicheskih_uzlah_i_agregatah
+		tech_harakteristiki_avto
 	)
+
+	setOneToMany(tip_shin, koliosa)
 
 }
 
