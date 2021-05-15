@@ -1,14 +1,14 @@
 module.exports = {
     modelName: "kabina",
+    ruModelName: "Кабина",
     URLs: {
         get: 'kabina',
     },
     fields: {
         Kabina: {
-            label: "Бортовое напряжение", 
+            label: "Кабина", 
             value: "", 
-            units: "в",
-            type: 'INTEGER',
+            type: 'STRING',
         },
     }
 }

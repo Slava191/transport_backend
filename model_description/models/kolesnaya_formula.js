@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "kolesnaya_formula",
+    ruModelName: "Колесная формула",
     URLs: {
         get: 'kolesnaya_formula',
     },

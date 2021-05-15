@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "hodovye_kachestva",
+    ruModelName: "Ходовые качества",
     URLs: {
         get: 'hodovye_kachestva',
     },

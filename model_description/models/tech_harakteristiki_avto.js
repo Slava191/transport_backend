@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "tech_harakteristiki_avto",
+    ruModelName: "Технические характеристики",
     URLs: {
         get: 'tech_harakteristiki_avto',
     },

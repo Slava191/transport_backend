@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "dvigatel",
+    ruModelName: "Двигатель",
     URLs: {
         get: 'dvigatel',
     },

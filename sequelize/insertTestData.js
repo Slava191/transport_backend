@@ -14,157 +14,193 @@ const insertTestData = async (sequelize) => {
 
     // await sequelize.models.measure_unit.bulkCreate(measureUnitsData);
 
-    // await sequelize.models.gabarity.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Gabaritnye_razmery_dlina: 6,
-    //         Gabaritnye_razmery_shirina: 2,
-    //         Gabaritnye_razmery_vysota: 2,
-    //         Vysota_shassi_v_zavisimosti_ot_konstrukcii: 1,
-    //         Baza: 2,
-    //         Pogruzochnaya_vysota: 1,
-    //         Primechaniya: "",
-    //     },
-    //     {
-    //         user_id: 1,
-    //         Gabaritnye_razmery_dlina: 6500,
-    //         Gabaritnye_razmery_shirina: 3500,
-    //         Gabaritnye_razmery_vysota: 2500,
-    //         Vysota_shassi_v_zavisimosti_ot_konstrukcii: 1,
-    //         Baza: 2,
-    //         Pogruzochnaya_vysota: 1,
-    //         Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.massa.bulkCreate([
+        {
+            user_id: 1,
+            Snaryazhyonnaya_massa_perednyaya_os:2000,
+            Snaryazhyonnaya_massa_zadnyaya_os:3000,
+            Polnaya_massa_perednyaya_os:4000,
+            Polnaya_massa_zadnyaya_os:5000
+        },
+    ]);
 
-    // await sequelize.models.cilindri.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Raspolozhenie_i_chislo_cilindrov: 4,
-    //     },
-    //     {
-    //         user_id: 1,
-    //         Raspolozhenie_i_chislo_cilindrov: 8,
-    //     },
-    // ]);
+    await sequelize.models.gabarity.bulkCreate([
+        {
+            user_id: 1,
+            Dlina: 4,
+            Shirina: 2,
+            Visota: 2,
+        },
+        {
+            user_id: 1,
+            Dlina: 6,
+            Shirina: 2,
+            Visota: 2,
+        },
+    ]);
 
-    // await sequelize.models.dvigatel.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         cilindri_id: 1,
-    //         Dvigatel: "Дизель турбонаддув",
-    //         Rabochij_obyom_dvigatelya: 10,
-    //         Moshchnost: 300,
-    //         Krutyashch_moment: 100,
-    //     },
-    //     {
-    //         user_id: 1,
-    //         cilindri_id: 2,
-    //         Dvigatel: "Бензиновый",
-    //         Rabochij_obyom_dvigatelya: 10,
-    //         Moshchnost: 10000,
-    //         Krutyashch_moment: 100,
-    //     },
-    // ]);
+    await sequelize.models.korobka_peredach.bulkCreate([
+        {
+            user_id: 1,
+            Tip: "МКПП"
+        },
+        {
+            user_id: 1,
+            Tip: "АКПП"
+        },
+    ]);
 
-    // await sequelize.models.korobka_peredach.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Tip: "МКПП"
-    //     },
-    //     {
-    //         user_id: 1,
-    //         Tip: "АКПП"
-    //     },
-    // ]);
+    await sequelize.models.cilindry.bulkCreate([
+        {
+            user_id: 1,
+            Raspolozhenie_i_chislo_cilindrov: 4,
+        },
+        {
+            user_id: 1,
+            Raspolozhenie_i_chislo_cilindrov: 8,
+        },
+    ]);
 
-    // await sequelize.models.harakteristiki_dvigatelya.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Raskhod_topliva: 5,
-    //         korobka_peredach_id: 1,
-    //         dvigatel_id: 1,
-    //         // Dvigatel: "Дизель турбонаддув",
-    //         // Raspolozhenie_i_chislo_cilindrov: 4,
-    //         // Rabochij_obyom_dvigatelya: 10,
-    //         // Moshchnost: 300,
-    //         // Krutyashch_moment: 100,
-    //         // Primechaniya: "Модель 740.55",
-    //     },
-    //     {
-    //         user_id: 1,
-    //         Raskhod_topliva: 5,
-    //         korobka_peredach_id: 2,
-    //         dvigatel_id: 2,
-    //         // Dvigatel: "Бензиновый",
-    //         // Raspolozhenie_i_chislo_cilindrov: 4,
-    //         // Rabochij_obyom_dvigatelya: 10,
-    //         // Moshchnost: 10000,
-    //         // Krutyashch_moment: 100,
-    //         // Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.dvigatel.bulkCreate([
+        {
+            user_id: 1,
+            cilindri_id: 1,
+            Dvigatel: "Дизель турбонаддув",
+            Rabochij_obyom_dvigatelya: 10,
+            Moshchnost: 300,
+            Krutyashch_moment: 100,
+        },
+        {
+            user_id: 1,
+            cilindri_id: 2,
+            Dvigatel: "Бензиновый",
+            Rabochij_obyom_dvigatelya: 10,
+            Moshchnost: 10000,
+            Krutyashch_moment: 100,
+        },
+    ]);
 
-    // await sequelize.models.hodovye_kachestva.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Radius_povorota: 11500,
-    //         Maksimalno_preodolevaemyj_podyom: 120,
-    //         Koleya: 3,
-    //         Maks_skorost: 90,
-    //         Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.harakteristiki_dvigatelya.bulkCreate([
+        {
+            user_id: 1,
+            Raskhod_topliva: 5,
+            korobka_peredach_id: 1,
+            dvigatel_id: 1,
+        },
+        {
+            user_id: 1,
+            Raskhod_topliva: 5,
+            korobka_peredach_id: 2,
+            dvigatel_id: 2,
+        },
+    ]);
+
+    await sequelize.models.hodovye_kachestva.bulkCreate([
+        {
+            user_id: 1,
+            Radius_povorota: 11500,
+            Maksimalno_preodolevaemyj_podyom: 120,
+            Maks_skorost: 90,
+        },
+    ]);
 
 
-    // await sequelize.models.bortovoe_napryazhenie.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Bortovoe_napryazhenie: 220,
-    //     },
-    // ]);
+    await sequelize.models.bortovoe_napryazhenie.bulkCreate([
+        {
+            user_id: 1,
+            Bortovoe_napryazhenie: 220,
+        },
+    ]);
 
-    // await sequelize.models.kabina.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Kabina: "расположенная над двигателем, рестайлинговая",
-    //     },
-    // ]);
+    await sequelize.models.kabina.bulkCreate([
+        {
+            user_id: 1,
+            Kabina: "расположенная над двигателем, рестайлинговая",
+        },
+    ]);
     
-    // await sequelize.models.informaciya_o_tekhnicheskih_uzlah_i_agregatah.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         kabina_id:1,
-    //         bortovoe_napryazhenie:1,
-    //         Obyom_toplivnyh_bakov: 350,
-    //         //Bortovoe_napryazhenie: 220,
-    //         // Markirovka_zadnih_mostov: "ВАЗ 2101",
-    //         // Varianty_dop_osevyh_nagruzok: "-",
-    //         // Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.tech_harakteristiki_avto.bulkCreate([
+        {
+            user_id: 1,
+            kabina_id:1,
+            bortovoe_napryazhenie:1,
+            Obyom_toplivnyh_bakov: 350,
+        },
+    ]);
 
-    // await sequelize.models.massa.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         Snaryazhyonnaya_massa_perednyaya_os:2000,
-    //         Snaryazhyonnaya_massa_zadnyaya_os:3000,
-    //         Polnaya_massa_perednyaya_os:4000,
-    //         Polnaya_massa_zadnyaya_os:5000
-    //         // Dopustimaya_polnaya_massa_avtomobilya: 21600,
-    //         // Dopustimaya_polnaya_massa_avtopoezda: 1600,
-    //         // Gruzopoyomnost_nagruzka_na_SSU: 2000,
-    //         // Raspredelenie_nagruzki_na_dorogu_snaryazhyonnaya_massa_perednyaya_os: 2000,
-    //         // Raspredelenie_nagruzki_na_dorogu_snaryazhyonnaya_massa_zadnyaya_os: 2000,
-    //         // Raspredelenie_nagruzki_na_dorogu_polnaya_massa_perednyaya_os: 2000,
-    //         // Raspredelenie_nagruzki_na_dorogu_polnaya_massa_zadnyaya_os: 2000,
-    //         // Dopustimaya_polnaya_massa: 2000,
-    //         // Polnaya_massa_na_SSU: 2000,
-    //         // Polnaya_massa_na_telezhku: 2000,
-    //         // Massa_v_snaryazhennom_sostoyanii: 2000,
-    //         // Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.kolesnaya_formula.bulkCreate([
+        {
+            user_id: 1,
+            Kolesnaya_formula: "6x4"
+        },
+    ]);
+
+    await sequelize.models.tip_ATS.bulkCreate([
+        {
+            user_id: 1,
+            kabina_id:1,
+            Naimenovanie: "грузовые автомобили",
+            Abbreviatura: "грузовые автомобили",
+        },
+        {
+            user_id: 1,
+            kabina_id:1,
+            Naimenovanie: "легковые автомобили",
+            Abbreviatura: "легковые автомобили",
+        },
+    ]);
+
+    await sequelize.models.gruppa_ATS.bulkCreate([
+        {
+            user_id: 1,
+            kabina_id:1,
+            Naimenovanie: "Грузовики",
+            Abbreviatura: "Грузовики",
+        },
+        {
+            user_id: 1,
+            kabina_id:1,
+            Naimenovanie: "Контейнеровозы",
+            Abbreviatura: "Контейнеровозы",
+        },
+    ]);
+
+    await sequelize.models.tip_shin.bulkCreate([
+        {
+            user_id: 1,
+            Shini: "Внедорожные шины",
+        },
+    ]);
+
+    await sequelize.models.koliosa.bulkCreate([
+        {
+            user_id: 1,
+            tip_shin_id:1,
+            Koliosnaya_baza: "3",
+        },
+    ]);
+
+    await sequelize.models.ves_pricepov.bulkCreate([
+        {
+            user_id: 1,
+            Snaryazh_massa_na_1_os: "120",
+            Snaryazh_massa_na_2_os: "100",
+        },
+    ]);
+
+
+    await sequelize.models.harakteristiki_pricepov.bulkCreate([
+        {
+            user_id: 1,
+            Porguz_visota: "1",
+            Koleya: "2",
+            Baza: "3",
+            Maks_skorost: "120"
+        },
+    ]);
+
+
+
 
     // await sequelize.models.transmissiya_i_kolyosa.bulkCreate([
     //     {

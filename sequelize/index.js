@@ -1,9 +1,8 @@
 const { Sequelize } = require('sequelize');
 const { applyExtraSetup } = require('./extra-setup');
 const { insertTestData } = require('./insertTestData')
-const modelsFatory = require('../model_description/modelsFatory')
+const modelsFactory = require('../model_description/modelsFactory')
 const fs = require("fs")
-//const massa = require('../model_description/models/massa')
 const config = require('config');
 
 const sequelize = new Sequelize(
@@ -20,7 +19,7 @@ const modelDefiners = [
 	require('./models/ATS'),
 	require('./models/ATSFile'),
 	...fs.readdirSync("./model_description/models").map((fileName) => {
-		return () => modelsFatory(sequelize, require(`../model_description/models/${fileName}`))
+		return () => modelsFactory(sequelize, require(`../model_description/models/${fileName}`))
 	}),
 	require('./models/user'),
 ]
@@ -33,11 +32,6 @@ for (const modelDefiner of modelDefiners) {
 // We execute any extra setup after the models are defined, such as adding associations.
 applyExtraSetup(sequelize);
 
-//{force:true}
-
-// sequelize.sync({force:true}).then(()=>{
-// 	console.log("Tables have been created");
-// }).catch(err=>console.log(err));
 
 async function reset() {
 
@@ -48,7 +42,7 @@ async function reset() {
 		console.log("Tables have been created");
 
 
-		//await insertTestData(sequelize);
+		await insertTestData(sequelize);
 		console.log("Test data have been inserted");
 
 		//ЗАПОЛНИТЬ ВСЕ

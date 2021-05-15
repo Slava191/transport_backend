@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "harakteristiki_pricepov",
+    ruModelName: "Характеристики прицепов",
     URLs: {
         get: 'harakteristiki_pricepov',
     },

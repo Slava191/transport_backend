@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "korobka_peredach",
+    ruModelName: "Коробка передач",
     URLs: {
         get: 'korobka_peredach',
     },

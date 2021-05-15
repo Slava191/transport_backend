@@ -23,6 +23,10 @@ function applyExtraSetup(sequelize) {
 		user
 	} = sequelize.models
 
+	const mainModels = [ATS, ATSFile, user]
+	const mainModelsNames = mainModels.map(model => model.name)
+	const dictionaryModels = Object.values(sequelize.models).filter(model => !mainModelsNames.includes(model.name))
+
 	const setOneToMany = (entityOne, entityTwo, onDelete = 'NO ACTION') => {
 
 		console.log(`Установлена связь 1:М (${entityOne.name}:${entityTwo.name}, onDelete: ${onDelete})`)
@@ -49,8 +53,6 @@ function applyExtraSetup(sequelize) {
 
 	//Связь: ATS - ATSFiles
 	setOneToMany(ATS, ATSFile, 'CASCADE')
-
-	console.log(Object.values(sequelize.models))
 
 	//Связи: Комплектующие - ATS
 	setOneToManyWithArrOfEntiesOne([

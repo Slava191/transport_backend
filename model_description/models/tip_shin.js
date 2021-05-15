@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "tip_shin",
+    ruModelName: "Тип шин",
     URLs: {
         get: 'tip_shin',
     },

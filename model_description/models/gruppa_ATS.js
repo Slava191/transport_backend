@@ -1,5 +1,6 @@
 module.exports = {
     modelName: "gruppa_ATS",
+    ruModelName: "Группа АТС",
     URLs: {
         get: 'gruppa_ATS',
     },
