@@ -221,6 +221,14 @@ module.exports = {
 				"value": "",
 				"units": "м",
 				"type": "INTEGER"
+			},
+			"tip_shin_id": {
+				"label": "Тип шин",
+				"value": "",
+				"model": "tip_shin",
+				"inputComponent": "SelectFromList",
+				"outputComponent": "ShowCharacteristic",
+				"type": "INTEGER"
 			}
 		}
 	},

@@ -170,6 +170,10 @@ const insertTestData = async (sequelize) => {
             user_id: 1,
             Shini: "Внедорожные шины",
         },
+        {
+            user_id: 1,
+            Shini: "Сезонные шины",
+        },
     ]);
 
     await sequelize.models.koliosa.bulkCreate([
