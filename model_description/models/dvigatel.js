@@ -21,5 +21,12 @@ module.exports = {
             label: "Крутящий момент", value: "", units: "Н/м",
             type: 'INTEGER',
         },
+        cilindry_id: {
+            label: "Цилиндры", value: "",
+            model: "cilindry",
+            inputComponent: "SelectFromList",
+            outputComponent: "ShowCharacteristic",
+            type: 'INTEGER',
+        }
     }
 }

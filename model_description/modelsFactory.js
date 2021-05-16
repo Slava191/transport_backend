@@ -12,6 +12,7 @@ module.exports = (sequelize, model) => {
         },
         user_id:{
             type: DataTypes.INTEGER,
+            defaultValue: 1
         },
         ...sequelizeDefineAdapter(model, DataTypes)
 	});

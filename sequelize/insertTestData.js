@@ -1,4 +1,4 @@
-const measureUnitsData = require('../model_description/data/measureUnits')
+const measureUnitsData = require('../model_description/data/measureUnits.js')
 
 const insertTestData = async (sequelize) => {
 
@@ -12,7 +12,7 @@ const insertTestData = async (sequelize) => {
         },
     ]);
 
-    // await sequelize.models.measure_unit.bulkCreate(measureUnitsData);
+    await sequelize.models.measure_unit.bulkCreate(measureUnitsData);
 
     await sequelize.models.massa.bulkCreate([
         {
@@ -64,7 +64,7 @@ const insertTestData = async (sequelize) => {
     await sequelize.models.dvigatel.bulkCreate([
         {
             user_id: 1,
-            cilindri_id: 1,
+            cilindry_id: 1,
             Dvigatel: "Дизель турбонаддув",
             Rabochij_obyom_dvigatelya: 10,
             Moshchnost: 300,
@@ -72,7 +72,7 @@ const insertTestData = async (sequelize) => {
         },
         {
             user_id: 1,
-            cilindri_id: 2,
+            cilindry_id: 2,
             Dvigatel: "Бензиновый",
             Rabochij_obyom_dvigatelya: 10,
             Moshchnost: 10000,
@@ -219,50 +219,40 @@ const insertTestData = async (sequelize) => {
     // ]);
 
 
-    // await sequelize.models.ATS.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         hodovye_kachestva_id:1,
-    //         gabarity_id: 1,
-    //         harakteristiki_dvigatelya_id: 1,
-    //         informaciya_o_tekhnicheskih_uzlah_i_agregatah_id: 1,
-    //         massa_id:1,
-    //         transmissiya_i_kolyosa_id: 1,
-    //         Marka_model: "КамАЗ 43118-3078-24",
-    //         Tip_ATS: "контейнеровоз",
-    //         Kabina: "расположенная над двигателем, рестайлинговая",
-    //         Klass: "контейнеровоз",
-    //         Primechaniya: "",
-    //     },
-    //     {
-    //         user_id: 1,
-    //         hodovye_kachestva_id:1,
-    //         gabarity_id: 2,
-    //         harakteristiki_dvigatelya_id: 2,
-    //         informaciya_o_tekhnicheskih_uzlah_i_agregatah_id: 1,
-    //         massa_id:1,
-    //         transmissiya_i_kolyosa_id: 1,
-    //         Marka_model: "ЗИЛ КО-440-АД",
-    //         Tip_ATS: "карбюраторный / дизельный",
-    //         Kabina: "расположенная над двигателем",
-    //         Klass: "бункеровоз",
-    //         Primechaniya: "",
-    //     },
-    // ]);
+    await sequelize.models.ATS.bulkCreate([
+        {
+            user_id: 1,
+            hodovye_kachestva_id:1,
+            gabarity_id: 1,
+            harakteristiki_dvigatelya_id: 1,
+            massa_id:1,
+            Marka_model: "КамАЗ 43118-3078-24",
+            Primechaniya: "",
+        },
+        {
+            user_id: 1,
+            hodovye_kachestva_id:1,
+            gabarity_id: 2,
+            harakteristiki_dvigatelya_id: 2,
+            massa_id:1,
+            Marka_model: "ЗИЛ КО-440-АД",
+            Primechaniya: "",
+        },
+    ]);
 
 
-    // await sequelize.models.ATSFile.bulkCreate([
-    //     {
-    //         user_id: 1,
-    //         ATS_id: 1,
-    //         name: "track1.jpg"
-    //     },
-    //     {
-    //         user_id: 1,
-    //         ATS_id: 2,
-    //         name: "track2.jpg"
-    //     },
-    // ]);
+    await sequelize.models.ATSFile.bulkCreate([
+        {
+            user_id: 1,
+            ATS_id: 1,
+            name: "track1.jpg"
+        },
+        {
+            user_id: 1,
+            ATS_id: 2,
+            name: "track2.jpg"
+        },
+    ]);
 }
 
 module.exports = { insertTestData };

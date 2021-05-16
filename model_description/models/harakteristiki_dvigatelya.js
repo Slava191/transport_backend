@@ -11,5 +11,12 @@ module.exports = {
             units: "л",
             type: "INTEGER"
         },
+        dvigatel_id: {
+            label: "Двигатель", value: "",
+            model: "dvigatel",
+            inputComponent: "SelectFromList",
+            outputComponent: "ShowCharacteristic",
+            type: 'INTEGER',
+        }
     }
 }

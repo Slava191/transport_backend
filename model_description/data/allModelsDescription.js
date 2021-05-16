@@ -57,6 +57,14 @@ module.exports = {
 				"value": "",
 				"units": "Н/м",
 				"type": "INTEGER"
+			},
+			"cilindry_id": {
+				"label": "Цилиндры",
+				"value": "",
+				"model": "cilindry",
+				"inputComponent": "SelectFromList",
+				"outputComponent": "ShowCharacteristic",
+				"type": "INTEGER"
 			}
 		}
 	},
@@ -117,6 +125,14 @@ module.exports = {
 				"label": "Расход топлива",
 				"value": "",
 				"units": "л",
+				"type": "INTEGER"
+			},
+			"dvigatel_id": {
+				"label": "Двигатель",
+				"value": "",
+				"model": "dvigatel",
+				"inputComponent": "SelectFromList",
+				"outputComponent": "ShowCharacteristic",
 				"type": "INTEGER"
 			}
 		}
@@ -279,6 +295,70 @@ module.exports = {
 				"value": "",
 				"units": "кг",
 				"units_gloabal_id": "273472428",
+				"type": "INTEGER"
+			}
+		}
+	},
+	"measure_unit": {
+		"modelName": "measure_unit",
+		"ruModelName": "Едининицы измерения",
+		"URLs": {
+			"get": "measure_unit"
+		},
+		"fields": {
+			"global_id": {
+				"label": "global_id",
+				"value": "",
+				"type": "INTEGER"
+			},
+			"NAME": {
+				"label": "NAME",
+				"value": "",
+				"type": "STRING"
+			},
+			"IDX": {
+				"label": "IDX",
+				"value": "",
+				"type": "STRING"
+			},
+			"SECTION": {
+				"label": "SECTION",
+				"value": "",
+				"type": "INTEGER"
+			},
+			"SUBSECTION": {
+				"label": "SUBSECTION",
+				"value": "",
+				"type": "INTEGER"
+			},
+			"ROWID": {
+				"label": "ROWID",
+				"value": "",
+				"type": "INTEGER"
+			},
+			"NATIONAL": {
+				"label": "NATIONAL",
+				"value": "",
+				"type": "STRING"
+			},
+			"INTERNATIONAL": {
+				"label": "INTERNATIONAL",
+				"value": "",
+				"type": "STRING"
+			},
+			"ALFANATIONAL": {
+				"label": "ALFANATIONAL",
+				"value": "",
+				"type": "STRING"
+			},
+			"ALFAINTERNATIONAL": {
+				"label": "ALFAINTERNATIONAL",
+				"value": "",
+				"type": "STRING"
+			},
+			"CODE": {
+				"label": "CODE",
+				"value": "",
 				"type": "INTEGER"
 			}
 		}
