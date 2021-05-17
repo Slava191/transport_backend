@@ -30,6 +30,15 @@ module.exports = (router, Model) => {
             res.send(entry)
 
         })
+        .get("/oneByParam/:param/:val",  async function(req, res){
+
+            const { param, val } = req.params
+
+            const entry = await Model.findOne({ where: { [param]: val } });
+
+            res.send(entry)
+
+        })
         .post("/", async function(req, res){
 
             const data = req.body
