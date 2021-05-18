@@ -9,6 +9,7 @@ module.exports = {
             label: "Колесная база", value: "",
             units: "м",
             type: 'INTEGER',
+            units_gloabal_id: "273472340"
         },
         tip_shin_id: {
             label: "Тип шин", value: "",

@@ -9,7 +9,8 @@ module.exports = {
             label: "Расход топлива", 
             value: "", 
             units: "л",
-            type: "INTEGER"
+            type: "INTEGER",
+            units_gloabal_id: "273472400",
         },
         dvigatel_id: {
             label: "Двигатель", value: "",

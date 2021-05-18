@@ -10,7 +10,8 @@ module.exports = {
 				"label": "Бортовое напряжение",
 				"value": "",
 				"units": "в",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472452"
 			}
 		}
 	},
@@ -44,19 +45,22 @@ module.exports = {
 				"label": "Рабочий объем двигателя",
 				"value": "",
 				"units": "л",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472400"
 			},
 			"Moshchnost": {
 				"label": "Мощность",
 				"value": "",
 				"units": "кВт",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472448"
 			},
 			"Krutyashch_moment": {
 				"label": "Крутящий момент",
 				"value": "",
 				"units": "Н/м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472508"
 			},
 			"cilindry_id": {
 				"label": "Цилиндры",
@@ -79,19 +83,22 @@ module.exports = {
 				"label": "Длина",
 				"value": "",
 				"units": "м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472348"
 			},
 			"Shirina": {
 				"label": "Ширина",
 				"value": "",
 				"units": "м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472348"
 			},
 			"Visota": {
 				"label": "Высота",
 				"value": "",
 				"units": "м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472348"
 			}
 		}
 	},
@@ -125,7 +132,8 @@ module.exports = {
 				"label": "Расход топлива",
 				"value": "",
 				"units": "л",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472400"
 			},
 			"dvigatel_id": {
 				"label": "Двигатель",
@@ -147,26 +155,30 @@ module.exports = {
 			"Porguz_visota": {
 				"label": "Погрузочная высота",
 				"value": "",
-				"units": "м",
-				"type": "INTEGER"
+				"units": "мм",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472340"
 			},
 			"Koleya": {
 				"label": "Колея",
 				"value": "",
-				"units": "м",
-				"type": "INTEGER"
+				"units": "мм",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472340"
 			},
 			"Baza": {
 				"label": "База",
 				"value": "",
-				"units": "м",
-				"type": "INTEGER"
+				"units": "мм",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472340"
 			},
 			"Maks_skorost": {
 				"label": "Максимальная скорость",
 				"value": "",
-				"units": "м/c^2",
-				"type": "INTEGER"
+				"units": "км/ч",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472569"
 			}
 		}
 	},
@@ -181,19 +193,22 @@ module.exports = {
 				"label": "Радиус поворота",
 				"value": "",
 				"units": "м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472348"
 			},
 			"Maksimalno_preodolevaemyj_podyom": {
 				"label": "Максимальный преодолеваемый подъем",
 				"value": "",
 				"units": "%",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273473063"
 			},
 			"Maks_skorost": {
 				"label": "Максимальная скорость",
 				"value": "",
 				"units": "км/ч",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472569"
 			}
 		}
 	},
@@ -236,7 +251,8 @@ module.exports = {
 				"label": "Колесная база",
 				"value": "",
 				"units": "м",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472340"
 			},
 			"tip_shin_id": {
 				"label": "Тип шин",
@@ -374,7 +390,8 @@ module.exports = {
 				"label": "Объем топливных баков",
 				"value": "",
 				"units": "л",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472400"
 			}
 		}
 	},
@@ -422,13 +439,29 @@ module.exports = {
 				"label": "Снаряженная масса на 1ую ось",
 				"value": "",
 				"units": "кг",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472428"
 			},
 			"Snaryazh_massa_na_2_os": {
 				"label": "Снаряженная масса на 2ую ось",
 				"value": "",
 				"units": "кг",
-				"type": "INTEGER"
+				"type": "INTEGER",
+				"units_gloabal_id": "273472428"
+			},
+			"Polnaya_massa_na_1_os": {
+				"label": "Полная масса на 1ую ось",
+				"value": "",
+				"units": "кг",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472428"
+			},
+			"Polnaya_massa_na_2_os": {
+				"label": "Полная масса на 2ую ось",
+				"value": "",
+				"units": "кг",
+				"type": "INTEGER",
+				"units_gloabal_id": "273472428"
 			}
 		}
 	}

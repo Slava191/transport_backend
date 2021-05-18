@@ -8,6 +8,7 @@ module.exports = {
         Obyom_toplivnyh_bakov: {
             label: "Объем топливных баков", value: "", units: "л",
             type: 'INTEGER',
+            units_gloabal_id: "273472400",
         },
     }
 }

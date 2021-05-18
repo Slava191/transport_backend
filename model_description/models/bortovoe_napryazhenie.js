@@ -10,6 +10,7 @@ module.exports = {
             value: "", 
             units: "в",
             type: 'INTEGER',
+            units_gloabal_id: "273472452",
         },
     }
 }

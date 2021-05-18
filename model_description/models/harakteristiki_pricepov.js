@@ -8,26 +8,30 @@ module.exports = {
         Porguz_visota: {
             label: "Погрузочная высота", 
             value: "", 
-            units: "м",
-            type: "INTEGER"
+            units: "мм",
+            type: "INTEGER",
+            units_gloabal_id: "273472340"
         },
         Koleya: {
             label: "Колея", 
             value: "", 
-            units: "м",
-            type: "INTEGER"
+            units: "мм",
+            type: "INTEGER",
+            units_gloabal_id: "273472340"
         },
         Baza: {
             label: "База", 
             value: "", 
-            units: "м",
-            type: "INTEGER"
+            units: "мм",
+            type: "INTEGER",
+            units_gloabal_id: "273472340"
         },
         Maks_skorost: {
             label: "Максимальная скорость", 
             value: "", 
-            units: "м/c^2",
-            type: "INTEGER"
+            units: "км/ч",
+            type: "INTEGER",
+            units_gloabal_id: "273472569"
         }
     }
 }
