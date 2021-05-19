@@ -10,6 +10,13 @@ const insertTestData = async (sequelize) => {
             tariff: 1,
             fullName: "Вячеслав Владиславович Чекменёв"
         },
+        { 
+            login: "ivanov@ivanov.ru",
+            password: "$2b$10$WTwgWjaTq5yCkQe3UfeYPenEBHFaqthjoitRFcpIc2sm4c9noqW0C",
+            role: "user",
+            tariff: 1,
+            fullName: "Иванов Иван Иванович"
+        },
     ]);
 
     await sequelize.models.measure_unit.bulkCreate(measureUnitsData);
@@ -235,7 +242,8 @@ const insertTestData = async (sequelize) => {
             gabarity_id: 2,
             harakteristiki_dvigatelya_id: 2,
             massa_id:1,
-            Marka_model: "ЗИЛ КО-440-АД",
+            Marka_model: "Isuzu FTS 800 2014",
+            Three_d_model_link: "https://hum3d.com/360-view/?id=135657",
             Primechaniya: "",
         },
     ]);

@@ -74,8 +74,10 @@ exports.deleteUser = async function (req, res){
     try{
 
         const { id } = req.params
-    
-        const rowDeleted = await User.destroy({ where: { id } })
+
+        const { role } = req.user
+
+        const rowDeleted = role === 'admin' ? await User.destroy({ where: { id } }) : 0
 
         res.send({
             rowDeleted
@@ -96,6 +98,21 @@ exports.addUser = async function (req, res){
         //TODO: Необходимо сделать, что только админ может передлать role и tariff
 
         let { fullName, login, password, role, tariff }  = req.body
+
+        if(req.isAuthenticated){
+
+            const { role: authUserRole } = req.user
+
+            if(authUserRole!=='admin'){
+                throw new Error('Только админ может создавать аккаунты')
+            }
+
+        }else{
+
+            role = undefined
+            tariff = undefined
+
+        }
 
         if(!login || !password) throw new Error("Login and password can't be empty value")
 

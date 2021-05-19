@@ -80,10 +80,13 @@ exports.updateATS = async function(req, res){
 
         const data = req.body
         const { id } = req.params
+        const { id: user_id, role } = req.user
+
+        const whereStatement = role === 'admin' ? { id } : { id, user_id }
 
         const [updateRes] = await ATS.update(
             data, 
-            { where: { id } }
+            { where: whereStatement }
         )
 
         const files = req.files?.files
@@ -101,9 +104,7 @@ exports.updateATS = async function(req, res){
                 await fileWorker.unlink(attachedFile.name)
 
             }
-
-            const { id: user_id } = req.user
-                
+        
             await fileWorker.manyFilesUploadAndSaveItInDB(files, ATSFile, {
                 ATS_id: id,
                 user_id
@@ -130,11 +131,20 @@ exports.deleteATS = async function (req, res){
     try{
 
         const { id } = req.params
+        const { id: user_id, role } = req.user
 
         const attachedFiles = await ATSFile.findAll({ where: { ATS_id: id } })
 
+        const whereStatement = role === 'admin' ? { id } : { id, user_id }
+
         //Удалит запись и файлы (по cascade) из БД
-        const numOfDeletedRows = await ATS.destroy({ where: { id } })
+        const numOfDeletedRows = await ATS.destroy({ where: whereStatement })
+
+        if(numOfDeletedRows){
+            res.status(200).end();
+        }else{
+            throw new Error("Ошибка")
+        }
 
         //Однако, физически файлы придется удалять вот так (или написать хук, но не знаю что лучше...):
         const fileWorker = new FileWorker()
@@ -142,12 +152,6 @@ exports.deleteATS = async function (req, res){
         for(const { name } of attachedFiles)
             fileWorker.unlink(name)
         
-
-        if(numOfDeletedRows){
-            res.status(200).end();
-        }else{
-            throw new Error("Ошибка")
-        }
 
     }catch(err){
 

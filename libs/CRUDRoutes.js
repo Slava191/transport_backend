@@ -61,9 +61,13 @@ module.exports = (router, Model) => {
                 const data = req.body
                 const { id } = req.params
 
+                const { id: user_id, role } = req.user
+
+                const whereStatement = role === 'admin' ? { id } : { id, user_id }
+
                 const [updateRes] = await Model.update(
                     data, 
-                    { where: { id } }
+                    { where: whereStatement }
                 )
 
                 if(updateRes){
@@ -84,8 +88,11 @@ module.exports = (router, Model) => {
             try{
 
                 const { id } = req.params
+                const { id: user_id, role } = req.user
 
-                const numOfDeletedRows = await Model.destroy({ where: { id } })
+                const whereStatement = role === 'admin' ? { id } : { id, user_id }
+
+                const numOfDeletedRows = await Model.destroy({ where: whereStatement })
 
                 if(numOfDeletedRows){
                     res.status(200).end();

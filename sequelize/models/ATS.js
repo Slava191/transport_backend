@@ -11,20 +11,11 @@ module.exports = (sequelize) => {
         user_id:{
             type: DataTypes.INTEGER,
         },
-        hodovye_kachestva_id:{
-            type: DataTypes.INTEGER,
-        },
-        gabarity_id: {
-            type: DataTypes.INTEGER,
-        },
-        harakteristiki_dvigatelya_id: {
-            type: DataTypes.INTEGER,
-        },
-        massa_id: {
-            type: DataTypes.INTEGER,
-        },
         Marka_model: {
             type: DataTypes.STRING,
         },
+        Three_d_model_link: {
+            type: DataTypes.STRING,
+        }
 	});
 };
