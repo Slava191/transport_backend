@@ -30,7 +30,7 @@ module.exports = {
             label: "Максимальная скорость", 
             value: "", 
             units: "км/ч",
-            type: "INTEGER",
+            type: 'FLOAT',
             units_gloabal_id: "273472569"
         }
     }

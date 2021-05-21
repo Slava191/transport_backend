@@ -8,7 +8,7 @@ module.exports = {
         Koliosnaya_baza: {
             label: "Колесная база", value: "",
             units: "м",
-            type: 'INTEGER',
+            type: 'FLOAT',
             units_gloabal_id: "273472340"
         },
         tip_shin_id: {

@@ -9,7 +9,7 @@ module.exports = {
             label: "Бортовое напряжение", 
             value: "", 
             units: "в",
-            type: 'INTEGER',
+            type: 'FLOAT',
             units_gloabal_id: "273472452",
         },
     }

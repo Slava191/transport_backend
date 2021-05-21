@@ -8,23 +8,23 @@ module.exports = {
         Dlina: {
             label: "Длина", 
             value: "",
-            units: "м",
-            type: 'INTEGER',
-            units_gloabal_id: "273472348",
+            units: "мм",
+            type: 'FLOAT',
+            units_gloabal_id: "273472340"
         },
         Shirina: {
             label: "Ширина", 
             value: "", 
-            units: "м",
-            type: 'INTEGER',
-            units_gloabal_id: "273472348",
+            units: "мм",
+            type: 'FLOAT',
+            units_gloabal_id: "273472340"
         },
         Visota: {
             label: "Высота", 
             value: "", 
-            units: "м",
-            type: 'INTEGER',
-            units_gloabal_id: "273472348",
+            units: "мм",
+            type: 'FLOAT',
+            units_gloabal_id: "273472340"
         },
     }
 }

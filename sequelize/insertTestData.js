@@ -73,7 +73,7 @@ const insertTestData = async (sequelize) => {
             user_id: 1,
             cilindry_id: 1,
             Dvigatel: "Дизель турбонаддув",
-            Rabochij_obyom_dvigatelya: 10,
+            Rabochij_obyom_dvigatelya: 4.7,
             Moshchnost: 300,
             Krutyashch_moment: 100,
         },

@@ -38,7 +38,7 @@ async function reset() {
 	try{
 
 
-		await sequelize.sync({ force: true });
+		await sequelize.sync({ force: true }); // { force: true }
 		console.log("Tables have been created");
 
 

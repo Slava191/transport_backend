@@ -7,17 +7,17 @@ module.exports = {
     fields: {
         Radius_povorota: {
             label: "Радиус поворота", value: "", units: "м",
-            type: 'INTEGER',
+            type: 'FLOAT',
             units_gloabal_id: "273472348",
         },
         Maksimalno_preodolevaemyj_podyom: {
             label: "Максимальный преодолеваемый подъем", value: "", units: "%",
-            type: 'INTEGER',
+            type: 'FLOAT',
             units_gloabal_id: "273473063",
         },
         Maks_skorost: {
             label: "Максимальная скорость", value: "", units: "км/ч",
-            type: 'INTEGER',
+            type: 'FLOAT',
             units_gloabal_id: "273472569",
         },
     }
