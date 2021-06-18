@@ -38,12 +38,12 @@ async function reset() {
 	try{
 
 
-		await sequelize.sync({ force: true }); // { force: true }
+		await sequelize.sync(); // { force: true }
 		console.log("Tables have been created");
 
 
-		await insertTestData(sequelize);
-		console.log("Test data have been inserted");
+		// await insertTestData(sequelize);
+		// console.log("Test data have been inserted");
 
 		//ЗАПОЛНИТЬ ВСЕ
 
